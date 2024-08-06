@@ -8,4 +8,9 @@ public class StringExample {
         localStr = "World!";
     }
 
+    public StringExample() {
+        System.out.println("Constructor done");
+        localStr = "Constructor done";
+    }
+
 }
