@@ -17,7 +17,12 @@ public class GreencityTest {
 
     @BeforeClass
     public static void setUpClass() {
+        //
+        // https://googlechromelabs.github.io/chrome-for-testing/
         System.setProperty("webdriver.chrome.driver", "./lib/chromedriver.exe");
+        //
+        // use 64 bit version
+        // https://github.com/mozilla/geckodriver/releases
         System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
 
     }
