@@ -1,10 +1,7 @@
 package com.softserve.edu;
 
 import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -83,6 +80,11 @@ public class GreencityTest {
         assert (elements.size() > 0);
         Thread.sleep(1000);
         //
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("alert('Hello, Click me')");
+        Thread.sleep(4000);
+        driver.switchTo().alert().accept();
+        Thread.sleep(1000);
     }
 
 }
