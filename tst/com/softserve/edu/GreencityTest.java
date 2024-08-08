@@ -1,14 +1,12 @@
 package com.softserve.edu;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 import java.util.List;
@@ -16,6 +14,13 @@ import java.util.List;
 public class GreencityTest {
 
     private WebDriver driver;
+
+    @BeforeClass
+    public static void setUpClass() {
+        System.setProperty("webdriver.chrome.driver", "./lib/chromedriver.exe");
+        System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
+
+    }
 
     @Before
     public void setUp() {
@@ -37,6 +42,14 @@ public class GreencityTest {
         //
         driver.findElement(By.cssSelector("app-header:nth-child(1) .ubs-header-sing-in-img")).click();
         Thread.sleep(1000);
+        //
+        List<WebElement> frames = driver.findElements(By.cssSelector("iframe"));
+        if (frames.size() > 0) {
+            driver.switchTo().frame(frames.get(0));
+            driver.findElement(By.id("close")).click();
+            driver.switchTo().defaultContent();
+            Thread.sleep(1000);
+        }
         //
         driver.findElement(By.id("email")).click();
         driver.findElement(By.id("email")).sendKeys("tyv09754@zslsz.com");
