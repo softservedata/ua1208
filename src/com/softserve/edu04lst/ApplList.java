@@ -1,9 +1,6 @@
 package com.softserve.edu04lst;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ApplList {
 
@@ -26,7 +23,7 @@ public class ApplList {
 		//lstStr.sort((a,b)->a.compareTo(b));
 		System.out.println("Sorted lstStr = " + lstStr);
 		*/
-		// /*-
+		/*-
 		String[] arrStr = { "222", "1", "1111", "10" };
 		List<String> lstStr = new ArrayList<>(Arrays.asList(arrStr));
 		//List<String> lstStr = new ArrayList<>();
@@ -41,7 +38,7 @@ public class ApplList {
 		System.out.println("Sorted: lstStr = " + lstStr);
 		lstStr.clear();
 		System.out.println("stStr.clear() = " + lstStr);
-		// */
+		*/
 		/*
 		List<String> list = new LinkedList<>();
 		list.add("First element");  // Adding elements
@@ -72,11 +69,12 @@ public class ApplList {
 				);
 		System.out.println("lstStr1 type = " + lstStr1.getClass().getName());
 		List<Student> lstStr = new ArrayList<>(lstStr1);
+		System.out.println("\nOriginal: lstStr = " + lstStr);
 		//
-		//lstStr.sort(new Student.ByNameAndAge());
+		//lstStr.sort(new Student.ByNameAndId());
 		//Collections.sort(lstStr);
-		Collections.sort(lstStr, new Student.ByDestName());
-		//Collections.sort(lstStr, new Student.ByNameAndAge());
+		//Collections.sort(lstStr, new Student.ByDestName());
+		Collections.sort(lstStr, new Student.ByNameAndId());
 		System.out.println("\nSorted: lstStr = " + lstStr);
 		//
 		Student st1 = new Student(145, "Stepan");
@@ -84,5 +82,22 @@ public class ApplList {
 		System.out.println("\nUpdated: lstStr = " + lstStr);
 		System.out.println("Element from 1 position: " + lstStr.get(1));
 		*/
-    }
+		//
+		List<String> list = new ArrayList<>();
+		List<String> addList = List.of("add First", "add Second");
+		list.add("First element");
+		list.add("Second element");
+		list.add("Third element");
+		list.add("Fourth element");
+		list.add(0, "One more first element");
+		list.addAll(2, addList);
+		System.out.println("list = " + list);
+		//
+		//List<String> removeElements = List.of("First element", "Fourth element");
+		//list.removeAll(removeElements);
+		List<String> retainElements = List.of("First element", "Fourth element");
+		list.retainAll(retainElements);
+		System.out.println("list = " + list);
+
+	}
 }
