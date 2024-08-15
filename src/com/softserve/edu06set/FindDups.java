@@ -1,9 +1,6 @@
 package com.softserve.edu06set;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class FindDups {
 
@@ -19,8 +16,8 @@ public class FindDups {
         System.out.println("Elements: " + s);
         */
 		// /*-
-		Set<Employee> s = new HashSet<>();
-		//Set<Employee> s = new TreeSet<>(new Employee.ByNameAndId());
+		//Set<Employee> s = new HashSet<>();
+		Set<Employee> s = new TreeSet<>(new Employee.ByNameAndId());
 		//Set<Employee> s = new TreeSet<>();
 		boolean b;
 		b = s.add(new Employee(123, "Ivan"));
