@@ -9,6 +9,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 import java.util.List;
@@ -58,8 +60,8 @@ public class GreencityTest {
         driver.findElement(By.cssSelector("app-header:nth-child(1) .body-2")).click();
         Thread.sleep(1000);
         //
-        driver.findElement(By.linkText("Sign out")).click();
-        Thread.sleep(1000);
+        WebElement signOutButton = driver.findElement(By.cssSelector("li.drop-down-item[aria-label='sign-out'] a"));
+        signOutButton.click();
         //
         List<WebElement> elements = driver.findElements(By.cssSelector("app-header:nth-child(1) .header_sign-up-link:nth-child(4) span:nth-child(1)"));
         assert (elements.size() > 0);

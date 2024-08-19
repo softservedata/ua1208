@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class hw {
+public class HwTest {
     private WebDriver driver;
     private Map<String, Object> vars;
     JavascriptExecutor js;

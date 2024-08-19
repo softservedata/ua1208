@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class negativeTest {
+public class NegativeTest {
     private WebDriver driver;
     private Map<String, Object> vars;
     JavascriptExecutor js;
