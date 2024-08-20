@@ -1,4 +1,4 @@
-package org.example;
+package com.softserve.edu;
 
 /**
  * Hello world!
