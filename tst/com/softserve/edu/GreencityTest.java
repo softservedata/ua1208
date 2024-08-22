@@ -26,8 +26,8 @@ public class GreencityTest {
 
     @Before
     public void setUp() {
-        //driver = new FirefoxDriver();
-        driver = new ChromeDriver();
+        driver = new FirefoxDriver();
+        //driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1295, 687));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
@@ -85,6 +85,7 @@ public class GreencityTest {
         Thread.sleep(4000);
         driver.switchTo().alert().accept();
         Thread.sleep(1000);
+        //
     }
 
 }
