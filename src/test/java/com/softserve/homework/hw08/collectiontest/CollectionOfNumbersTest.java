@@ -1,6 +1,8 @@
 package test.java.com.softserve.homework.hw08.collectiontest;
 
 import main.java.com.softserve.homework.hw08.collection.CollectionsOfNumbers;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -23,6 +25,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CollectionOfNumbersTest {
+    @BeforeAll
+    static void startTest() {
+        System.out.println("Start test");
+    }
+
     private CollectionsOfNumbers collectionsOfNumbers;
     private List<Integer> testNumbers;
 
@@ -157,5 +164,10 @@ public class CollectionOfNumbersTest {
                 Arguments.of(Arrays.asList(10, 44, 23, 33), Arrays.asList(10, 23, 33, 44)),
                 Arguments.of(Arrays.asList(50, 40, 60), Arrays.asList(40, 50, 60))
         );
+    }
+
+    @AfterAll
+    static void completeTest() {
+        System.out.println("Complete test");
     }
 }

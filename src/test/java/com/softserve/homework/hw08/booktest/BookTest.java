@@ -1,6 +1,8 @@
 package test.java.com.softserve.homework.hw08.booktest;
 
 import main.java.com.softserve.homework.hw08.book.Book;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -22,6 +24,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookTest {
+    @BeforeAll
+    static void startTest() {
+        System.out.println("Start test");
+    }
+
     List<Book> books;
     private List<Book> emptyBooks;
 
@@ -155,5 +162,10 @@ public class BookTest {
                 Arguments.of("Fiction", 2),
                 Arguments.of("Fantasy", 1)
         );
+    }
+
+    @AfterAll
+    static void completeTest() {
+        System.out.println("Complete test");
     }
 }
