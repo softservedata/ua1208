@@ -1,11 +1,8 @@
-package main.java.com.softserve.homework.hw08;
+package main.java.com.softserve.homework.hw08.collection;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Random;
 
 public class CollectionsOfNumbers {
 

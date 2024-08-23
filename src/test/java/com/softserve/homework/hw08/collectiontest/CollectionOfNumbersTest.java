@@ -1,6 +1,6 @@
-package test.java.com.softserve.homework.hw08;
+package test.java.com.softserve.homework.hw08.collectiontest;
 
-import main.java.com.softserve.homework.hw08.CollectionsOfNumbers;
+import main.java.com.softserve.homework.hw08.collection.CollectionsOfNumbers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -147,4 +147,3 @@ public class CollectionOfNumbersTest {
         );
     }
 }
-
