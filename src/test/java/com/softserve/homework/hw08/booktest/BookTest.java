@@ -3,6 +3,9 @@ package test.java.com.softserve.homework.hw08.booktest;
 import main.java.com.softserve.homework.hw08.book.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BookTest {
     List<Book> books;
     private List<Book> emptyBooks;
@@ -33,6 +37,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for finding a book by author")
+    @Order(2)
     @MethodSource("authorProvider")
     void testFindBookByAuthor(String author, String expectedTitle) {
         Book foundBook = Book.findBookByAuthor(books, author);
@@ -54,6 +59,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for finding books by year")
+    @Order(1)
     @MethodSource("yearProvider")
     void testFindBooksByYear(int year, int expectedCount) {
         List<Book> booksByYear = Book.findBooksByYear(books, year);
@@ -69,6 +75,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for finding books by genre")
+    @Order(3)
     @MethodSource("genreProvider")
     void testFindBooksByGenre(String genre, int expectedCount) {
         List<Book> genreBooks = Book.findBooksByGenre(books, genre);
@@ -85,6 +92,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for Removing book from list")
+    @Order(7)
     @MethodSource("removeBookProvider")
     void removeBookFromList(String authorBook, int expectedSizeAfterRemoval) {
         Book.removeBooksByAuthor(books, authorBook);
@@ -100,6 +108,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for sorting books by year")
+    @Order(6)
     @MethodSource("sortProvider")
     void testSortBooks(Comparator<Book> comparator, int firstYear, int lastYear) {
         Book.sortBooks(books, comparator);
@@ -115,6 +124,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for merging book collections")
+    @Order(4)
     @MethodSource("mergeCollectionProvider")
     void testMergeBookCollections(List<Book> newBooks, int expectedSize) {
         List<Book> mergedBooks = Book.mergeBookCollections(books, newBooks);
@@ -133,6 +143,7 @@ public class BookTest {
 
     @ParameterizedTest
     @DisplayName("Test for sub-collection by genre")
+    @Order(5)
     @MethodSource("subCollectionGenreProvider")
     void testSubCollectionByGenre(String genre, int expectedCount) {
         List<Book> genreBooks = Book.subCollectionByGenre(books, genre);

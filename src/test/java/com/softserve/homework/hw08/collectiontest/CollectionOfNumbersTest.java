@@ -3,6 +3,9 @@ package test.java.com.softserve.homework.hw08.collectiontest;
 import main.java.com.softserve.homework.hw08.collection.CollectionsOfNumbers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -18,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CollectionOfNumbersTest {
     private CollectionsOfNumbers collectionsOfNumbers;
     private List<Integer> testNumbers;
@@ -30,6 +34,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Positive Test for Minimum Value in Collection")
+    @Order(3)
     @MethodSource("positiveMinProvider")
     public void testFindMinPositive(List<Integer> numbers, int expectMin) {
         assertEquals(expectMin, collectionsOfNumbers.findMin(numbers));
@@ -44,6 +49,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Negative Test for Minimum Value in Collection")
+    @Order(4)
     @MethodSource("negativeMinProvider")
     public void testFindMinNegative(List<Integer> numbers, Integer expectMin) {
         if (numbers == null || numbers.isEmpty()) {
@@ -63,6 +69,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Positive Test for Maximum Value in Collection")
+    @Order(1)
     @MethodSource("positiveMaxProvider")
     public void testFindMax(List<Integer> numbers, int expectMax) {
         assertEquals(expectMax, collectionsOfNumbers.findMax(numbers));
@@ -77,6 +84,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Negative Test for Maximum Value in Collection")
+    @Order(2)
     @MethodSource("negativeMinProvider")
     public void testFindMaxNegative(List<Integer> numbers, Integer expectMax) {
         if (numbers == null || numbers.isEmpty()) {
@@ -96,6 +104,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Test for Average Calculation")
+    @Order(5)
     @MethodSource("avgProvider")
     public void averageCalculation(List<Integer> numbers, double expectedAverage) {
         assertEquals(expectedAverage, collectionsOfNumbers.calculateAverage(numbers));
@@ -110,6 +119,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Test for Removing Even Numbers")
+    @Order(9)
     @MethodSource("evenRemovalProvider")
     public void testRemoveEvenNumbers(List<Integer> numbers, List<Integer> expectedNumbers) {
         List<Integer> modifiableNumbers = new ArrayList<>(numbers);
@@ -125,6 +135,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Test for Containing Number")
+    @Order(8)
     @CsvSource({
             "33, true",
             "100, false"
@@ -135,6 +146,7 @@ public class CollectionOfNumbersTest {
 
     @ParameterizedTest
     @DisplayName("Test for Sorting Numbers")
+    @Order(7)
     @MethodSource("sortProvider")
     public void testSortNumbers(List<Integer> numbers, List<Integer> expectedSortedNumbers) {
         assertEquals(expectedSortedNumbers, collectionsOfNumbers.sortNumbers(numbers));
