@@ -1,4 +1,4 @@
-package com.softserve.edu;
+package com.softserve.edu02events;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
@@ -9,20 +9,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class GreencityTest {
+public class GreenCityProfileTest {
 
     private static WebDriver driver;
 
     @BeforeAll
     public static void setUpClass() {
-        //
-        // https://googlechromelabs.github.io/chrome-for-testing/
-        //System.setProperty("webdriver.chrome.driver", "./lib/chromedriver.exe");
-        //
-        // use 64 bit version
-        // https://github.com/mozilla/geckodriver/releases
-        //System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
-        //
         //WebDriverManager.firefoxdriver().setup();
         //driver = new FirefoxDriver();
         //
@@ -36,9 +28,14 @@ public class GreencityTest {
 
     @BeforeEach
     public void setUp() throws InterruptedException {
-        driver.get("https://www.greencity.cx.ua/");
+        driver.get("https://www.greencity.cx.ua/#/ubs");
         Thread.sleep(1000);
         //
+    }
+
+    @AfterEach
+    public void tearDownClass() throws InterruptedException {
+        Thread.sleep(2000);
     }
 
     @AfterAll
@@ -48,8 +45,7 @@ public class GreencityTest {
         }
     }
 
-    @Test
-    public void testLogin() throws InterruptedException {
+    private void login(String email, String password) throws InterruptedException {
         //
         String language = driver.findElement(By.cssSelector("div.main-content.app-container li.lang-option > span")).getText();
         Thread.sleep(2000);
@@ -73,11 +69,13 @@ public class GreencityTest {
         }
         //
         driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("tyv09754@zslsz.com");
+        //driver.findElement(By.id("email")).sendKeys("tyv09754@zslsz.com");
+        driver.findElement(By.id("email")).sendKeys(email);
         Thread.sleep(1000);
         //
         driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).sendKeys("Qwerty_1");
+        //driver.findElement(By.id("password")).sendKeys("Qwerty_1");
+        driver.findElement(By.id("password")).sendKeys(password);
         Thread.sleep(1000);
         //
         driver.findElement(By.cssSelector(".image-show-hide-password")).click();
@@ -85,9 +83,9 @@ public class GreencityTest {
         //
         driver.findElement(By.cssSelector(".ubsStyle")).click();
         Thread.sleep(1000);
-        //
-        Assertions.assertEquals("QwertyY", driver.findElement(By.cssSelector("app-header:nth-child(1) .body-2")).getText());
-        Thread.sleep(1000);
+    }
+
+    private void logout() throws InterruptedException {
         //
         driver.findElement(By.cssSelector("app-header:nth-child(1) .body-2")).click();
         Thread.sleep(1000);
@@ -95,15 +93,32 @@ public class GreencityTest {
         driver.findElement(By.linkText("Sign out")).click();
         Thread.sleep(1000);
         //
-        List<WebElement> elements = driver.findElements(By.cssSelector("app-header:nth-child(1) .header_sign-up-link:nth-child(4) span:nth-child(1)"));
-        assert (elements.size() > 0);
+    }
+
+    @Test
+    public void checkProfile() throws InterruptedException {
+        login("tyv09754@zslsz.com","Qwerty_1");
+        //
+        //driver.findElement(By.cssSelector("app-header:nth-child(1) .nav-left-list:nth-child(4) > .url-name")).click();
+        driver.findElement(By.cssSelector("div.main-content.app-container a.url-name.ng-star-inserted[href='#/greenCity']")).click();
         Thread.sleep(1000);
         //
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("alert('Hello, Click me')");
-        Thread.sleep(4000);
-        driver.switchTo().alert().accept();
+        driver.findElement(By.cssSelector(".nav-left-list:nth-child(5) > .url-name")).click();
         Thread.sleep(1000);
+        //
+        driver.findElement(By.cssSelector("#mat-tab-label-0-2 .mdc-tab__text-label")).click();
+        Thread.sleep(1000);
+        //
+        WebElement label = driver.findElement(By.cssSelector("#mat-mdc-checkbox-1 .mdc-label"));
+        Thread.sleep(1000);
+        //
+        Assertions.assertEquals("homepage.events.my-space.event-type-online", label.getText().trim());
+        Thread.sleep(1000);
+        //
+        driver.findElement(By.cssSelector("a.url-name.ng-star-inserted[href='#/']")).click();
+        Thread.sleep(1000);
+        //
+        logout();
     }
 
 }
