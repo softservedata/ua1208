@@ -2,12 +2,16 @@ package com.softserve.edu02events;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class GreenCityProfileTest {
 
@@ -23,7 +27,7 @@ public class GreenCityProfileTest {
         //
         //driver.manage().window().setSize(new Dimension(1295, 687));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // 0 by default
     }
 
     @BeforeEach
@@ -113,6 +117,60 @@ public class GreenCityProfileTest {
         Thread.sleep(1000);
         //
         Assertions.assertEquals("homepage.events.my-space.event-type-online", label.getText().trim());
+        Thread.sleep(1000);
+        //
+        driver.findElement(By.cssSelector("a.url-name.ng-star-inserted[href='#/']")).click();
+        Thread.sleep(1000);
+        //
+        logout();
+    }
+
+
+    private static Object[][] accountProvider() {
+        return new Object[][] {
+                {"tyv09754@zslsz.com", "Qwerty_1", "homepage.events.my-space.event-type-online"}
+        };
+    }
+
+    private static Stream<Arguments> account1Provider() {
+        String email = System.getenv().get("MY_IDE_EMAIL");
+        String password = System.getenv().get("MY_IDE_PASSWORD");
+        System.out.println("\temail = " + email + "   password = " + password);// Lazy
+        return Stream.of(
+                Arguments.of(email, password, "homepage.events.my-space.event-type-online")
+        );
+    }
+
+    private static Object[][] account2Provider() {
+        String email = System.getenv().get("MY_IDE_EMAIL");
+        String password = System.getenv().get("MY_IDE_PASSWORD");
+        System.out.println("\temail = " + email + "   password = " + password);
+        return new Object[][] {
+                {email, password, "homepage.events.my-space.event-type-online"}
+        };
+    }
+
+    @DisplayName("checkProfile2")
+    @ParameterizedTest(name = "{index} => email={0}, password={1}, labelMessage={2}")
+    @MethodSource("account1Provider")
+    public void checkProfile2(String email, String password, String labelMessage) throws InterruptedException {
+        login(email,password);
+        Thread.sleep(2000); // Remove. DO NOT USE Thread.sleep();
+        //
+        //driver.findElement(By.cssSelector("app-header:nth-child(1) .nav-left-list:nth-child(4) > .url-name")).click();
+        driver.findElement(By.cssSelector("div.main-content.app-container a.url-name.ng-star-inserted[href='#/greenCity']")).click();
+        Thread.sleep(1000);
+        //
+        driver.findElement(By.cssSelector(".nav-left-list:nth-child(5) > .url-name")).click();
+        Thread.sleep(1000);
+        //
+        driver.findElement(By.cssSelector("#mat-tab-label-0-2 .mdc-tab__text-label")).click();
+        Thread.sleep(1000);
+        //
+        WebElement label = driver.findElement(By.cssSelector("#mat-mdc-checkbox-1 .mdc-label"));
+        Thread.sleep(1000);
+        //
+        Assertions.assertEquals(labelMessage, label.getText().trim());
         Thread.sleep(1000);
         //
         driver.findElement(By.cssSelector("a.url-name.ng-star-inserted[href='#/']")).click();
