@@ -23,12 +23,12 @@ public class GreencityTest {
         // https://github.com/mozilla/geckodriver/releases
         //System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
         //
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+//        WebDriverManager.firefoxdriver().setup();
+//        driver = new FirefoxDriver();
         //
-        //WebDriverManager.chromedriver().setup();
-        //driver = new ChromeDriver();
-        //
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+
         //driver.manage().window().setSize(new Dimension(1295, 687));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
