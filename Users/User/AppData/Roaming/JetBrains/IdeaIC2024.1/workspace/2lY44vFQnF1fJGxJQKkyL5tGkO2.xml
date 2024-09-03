@@ -1,0 +1,237 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="ua1208mvn" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf ideFingerprint="l4km58771ji7">
+      <file>
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/example/AppTest.java">
+          <provider editor-type-id="text-editor" selected="true">
+            <state relative-caret-position="176">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/example/App.java">
+          <provider editor-type-id="text-editor" selected="true">
+            <state relative-caret-position="132">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary"><![CDATA[{
+  "data": {
+    "JAVA": {
+      "usageCount": 2,
+      "lastUsed": 1725353069112
+    },
+    "XML": {
+      "usageCount": 2,
+      "lastUsed": 1725352431792
+    }
+  }
+}]]></component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/pom.xml" />
+      <option value="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="JAVA">
+      <summary usageCount="2" lastUsage="1725353069112" />
+    </language>
+    <language id="XML">
+      <summary usageCount="2" lastUsage="1725352431792" />
+    </language>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/main}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/main/java}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/main}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/main/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/main/java/org/example}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/test}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/test/java}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ua1208mvn" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/test}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/test/java}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://C:/Maven/ua1208mvn/src/test/java/org/example}" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="JUnit.AppTest.ChekTst" />
+      <element setting="JUnit.AppTest" />
+    </history>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="AppTest - 2024.09.03 at 11h 43m 43s.xml">
+      <configuration name="AppTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <layoutV2>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2624451" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="0" visible="true" weight="0.33035713" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.33035713" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.33035713" />
+      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info anchor="bottom" id="Build" order="4" weight="0.33035713" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info active="true" anchor="right" id="Maven" order="5" side_tool="true" visible="true" weight="0.04136164" />
+      <unified_weights bottom="0.33035713" left="0.2624451" right="0.04136164" />
+    </layoutV2>
+    <recentWindows>
+      <value>Project</value>
+      <value>Version Control</value>
+      <value>Run</value>
+      <value>Maven</value>
+      <value>Problems View</value>
+      <value>Build</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1284" height="198" key="GridCell.Tab.0.bottom" timestamp="1725353032713">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1284" height="198" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1725353032713" />
+    <state width="1284" height="198" key="GridCell.Tab.0.center" timestamp="1725353032712">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1284" height="198" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1725353032712" />
+    <state width="1284" height="198" key="GridCell.Tab.0.left" timestamp="1725353032712">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1284" height="198" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1725353032712" />
+    <state width="1284" height="198" key="GridCell.Tab.0.right" timestamp="1725353032713">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1284" height="198" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1725353032713" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/maven-4.0.0.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="69" lean-forward="true" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/example/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/example/AppTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
