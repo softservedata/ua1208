@@ -1,5 +1,6 @@
 package com.softserve.edu05page.pages;
 
+import com.softserve.edu05page.data.User;
 import com.softserve.edu05page.tests.GreencityTestRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -97,17 +98,23 @@ public class LoginPage {
 
     // Business Logic
 
-    public BasePage successfullyLogin(String validEmail, String validPassword) {
-        sendEmailField(validEmail);
-        sendPasswordField(validPassword);
+    //public BasePage successfullyLogin(String validEmail, String validPassword) {
+    public BasePage successfullyLogin(User validUser) {
+        //sendEmailField(validEmail);
+        sendEmailField(validUser.getEmail());
+        //sendPasswordField(validPassword);
+        sendPasswordField(validUser.getPassword());
         clickSigninButton();
         GreencityTestRunner.presentationSleep();
         return new BasePage(driver);
     }
 
-    public InvaliLoginPage unsuccessfullyLogin(String invalidEmail, String invalidPassword) {
-        sendEmailField(invalidEmail);
-        sendPasswordField(invalidPassword);
+    //public InvaliLoginPage unsuccessfullyLogin(String invalidEmail, String invalidPassword) {
+    public InvaliLoginPage unsuccessfullyLogin(User invalidUser) {
+        //sendEmailField(invalidEmail);
+        sendEmailField(invalidUser.getEmail());
+        //sendPasswordField(invalidPassword);
+        sendPasswordField(invalidUser.getPassword());
         clickSigninButton();
         GreencityTestRunner.presentationSleep();
         return new InvaliLoginPage(driver);

@@ -1,5 +1,6 @@
 package com.softserve.edu05page.tests;
 
+import com.softserve.edu05page.data.User;
 import com.softserve.edu05page.pages.BasePage;
 import com.softserve.edu05page.pages.HomePage;
 import com.softserve.edu05page.pages.InvaliLoginPage;
@@ -12,18 +13,24 @@ public class GreencityLoginTest extends GreencityTestRunner {
 
     private static Object[][] validAccountProvider() {
         return new Object[][] {
-                {"tyv09754@zslsz.com", "Qwerty_1", "QwertyY"}
+                //{"tyv09754@zslsz.com", "Qwerty_1", "QwertyY"}
+                { new User("tyv09754@zslsz.com", "Qwerty_1", "QwertyY") }
         };
     }
 
-    @ParameterizedTest(name = "{index} => email={0}, password={1}, name={2}")
+    //@ParameterizedTest(name = "{index} => email={0}, password={1}, name={2}")
+    @ParameterizedTest(name = "{index} => user={0}")
     @MethodSource("validAccountProvider")
-    public void checkValidLogin(String email, String password, String name) {
+    //public void checkValidLogin(String email, String password, String name) {
+    public void checkValidLogin(User validUser) {
         BasePage basePage = startApplication()
                 .switchToEN()
                 .gotoLogin()
-                .successfullyLogin(email, password);
-        Assertions.assertEquals(name, basePage.getUbsUsernameText());
+                .successfullyLogin(validUser);
+                //.successfullyLogin(user.getEmail(), user.getPassword());
+                //.successfullyLogin(email, password);
+        //Assertions.assertEquals(name, basePage.getUbsUsernameText());
+        Assertions.assertEquals(validUser.getName(), basePage.getUbsUsernameText());
         //
         HomePage homePage = basePage.signOutApplication();
     }
@@ -31,17 +38,21 @@ public class GreencityLoginTest extends GreencityTestRunner {
 
     private static Object[][] invalidAccountProvider() {
         return new Object[][] {
-                {"hahaha@zslsz.com", "Qwerty_Error"}
+                //{"hahaha@zslsz.com", "Qwerty_Error"}
+                { new User("hahaha@zslsz.com", "Qwerty_Error", "hahaha") }
         };
     }
 
-    @ParameterizedTest(name = "{index} => email={0}, password={1}, name={2}")
+    //@ParameterizedTest(name = "{index} => email={0}, password={1}, name={2}")
+    @ParameterizedTest(name = "{index} => user={0}")
     @MethodSource("invalidAccountProvider")
-    public void checkValidLogin(String email, String password) {
+    //public void checkInvalidLogin(String email, String password) {
+    public void checkInvalidLogin(User invalidUser) {
         InvaliLoginPage invaliLoginPage = startApplication()
                 .switchToEN()
                 .gotoLogin()
-                .unsuccessfullyLogin(email, password);
+                .unsuccessfullyLogin(invalidUser);
+                //.unsuccessfullyLogin(user.getEmail(), user.getPassword());
         Assertions.assertEquals(InvaliLoginPage.ERROR_MESSAGE_EN, invaliLoginPage.getAlertErrorText().trim());
         //
         HomePage homePage = invaliLoginPage.closeLoginPage();
