@@ -16,13 +16,13 @@ public class GreencityLoginTest extends GreencityTestRunner {
         return new Object[][] {
                 //{"tyv09754@zslsz.com", "Qwerty_1", "QwertyY"}
                 //{ new User("tyv09754@zslsz.com", "Qwerty_1", "QwertyY") }
-                //{ UserRepository.getValidUser() }
-                { UserRepository.getExistUser() }
+                { UserRepository.getValidUser() }
+                //{ UserRepository.getExistUser() }
         };
     }
 
     //@ParameterizedTest(name = "{index} => email={0}, password={1}, name={2}")
-    @ParameterizedTest(name = "{index} => user={0}")
+    @ParameterizedTest(name = "checkValidLogin number = {index}  parameter =  user={0}")
     @MethodSource("validAccountProvider")
     //public void checkValidLogin(String email, String password, String name) {
     public void checkValidLogin(User validUser) {
@@ -33,10 +33,10 @@ public class GreencityLoginTest extends GreencityTestRunner {
                 //.successfullyLogin(user.getEmail(), user.getPassword());
                 //.successfullyLogin(email, password);
         //Assertions.assertEquals(name, basePage.getUbsUsernameText());
-        Assertions.assertEquals(validUser.getName()+"A", basePage.getUbsUsernameText());
+        Assertions.assertEquals(validUser.getName(), basePage.getUbsUsernameText());
         //
         HomePage homePage = basePage.signOutApplication();
-        isSuccess = true;
+        // isSuccess = true;
     }
 
 
@@ -61,6 +61,6 @@ public class GreencityLoginTest extends GreencityTestRunner {
         Assertions.assertEquals(InvaliLoginPage.ERROR_MESSAGE_EN, invaliLoginPage.getAlertErrorText().trim());
         //
         HomePage homePage = invaliLoginPage.closeLoginPage();
-        isSuccess = true;
+        // isSuccess = true;
     }
 }
