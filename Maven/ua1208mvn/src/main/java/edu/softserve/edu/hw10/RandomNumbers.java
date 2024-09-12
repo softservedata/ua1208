@@ -1,4 +1,4 @@
-package edu.softserve.edu.hw09;
+package edu.softserve.edu.hw10;
 
 import java.util.ArrayList;
 import java.util.Collections;
