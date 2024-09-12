@@ -6,7 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class LoginPage {
+
+    private static final String CLOSE_POPUP_WINDOW_CSSSELECTOR = "img.cross-btn";
 
     protected WebDriver driver;
     //
@@ -96,6 +100,15 @@ public class LoginPage {
         typePasswordField(password);
     }
 
+    // closePopupWindow
+    private void closePopupWindow() {
+        List<WebElement> closeButton = driver
+                .findElements(By.cssSelector(CLOSE_POPUP_WINDOW_CSSSELECTOR));
+        if (closeButton.size() > 0) {
+            closeButton.get(0).click();
+        }
+    }
+
     // Business Logic
 
     //public BasePage successfullyLogin(String validEmail, String validPassword) {
@@ -105,7 +118,9 @@ public class LoginPage {
         //sendPasswordField(validPassword);
         sendPasswordField(validUser.getPassword());
         clickSigninButton();
-        GreencityTestRunner.presentationSleep();
+        GreencityTestRunner.presentationSleep(); // TODO Use explicit wait
+        closePopupWindow();
+        GreencityTestRunner.presentationSleep(); // TODO Use explicit wait
         return new BasePage(driver);
     }
 

@@ -26,6 +26,7 @@ public class GreencityLoginTest extends GreencityTestRunner {
     @MethodSource("validAccountProvider")
     //public void checkValidLogin(String email, String password, String name) {
     public void checkValidLogin(User validUser) {
+        logger.info("Test_Name = checkValidLogin; Parameters: User = " + validUser);
         BasePage basePage = startApplication()
                 .switchToEN()
                 .gotoLogin()
@@ -53,6 +54,7 @@ public class GreencityLoginTest extends GreencityTestRunner {
     @MethodSource("invalidAccountProvider")
     //public void checkInvalidLogin(String email, String password) {
     public void checkInvalidLogin(User invalidUser) {
+        logger.info("Test_Name = checkValidLogin; Parameters: User = " + invalidUser);
         InvaliLoginPage invaliLoginPage = startApplication()
                 .switchToEN()
                 .gotoLogin()

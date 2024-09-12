@@ -10,6 +10,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +33,8 @@ public abstract class GreencityTestRunner {
     private static final Long IMPLICIT_WAIT = 5L;
     private static WebDriver driver;
     private static JavascriptExecutor js;
-    protected static boolean isSuccess = false;;
+    protected static boolean isSuccess = false;
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @BeforeAll
     public static void setUpClass() {
@@ -48,15 +51,18 @@ public abstract class GreencityTestRunner {
     }
 
     @BeforeEach
-    public void setUp() throws InterruptedException {
+    public void setUp(TestInfo testInfo) throws InterruptedException {
         presentationSleep();
         isSuccess = false;
+        logger.info("Test_Name = " + testInfo.getDisplayName() + " started");
     }
 
     @AfterEach
     public void tearDownClass(TestInfo testInfo) throws InterruptedException {
         presentationSleep();
         if (!isSuccess) {
+            logger.error("Test_Name = " + testInfo.getDisplayName() + " failed");
+            //
             System.out.println("\t\t\tTest_Name = " + testInfo.getDisplayName() + " fail");
             System.out.println("\t\t\tTest_Method = " + testInfo.getTestMethod() + " fail");
             //
@@ -67,6 +73,8 @@ public abstract class GreencityTestRunner {
             removeItemFromLocalStorage("accessToken");
             removeItemFromLocalStorage("refreshToken");
             driver.navigate().refresh();
+        } else {
+            logger.info("Test_Name = " + testInfo.getDisplayName() + " successfully");
         }
     }
 
@@ -97,7 +105,7 @@ public abstract class GreencityTestRunner {
     }
 
     private void takeScreenShot() {
-        //logger.debug("Start takeScreenShot()");
+        logger.debug("Start takeScreenShot()");
         //
         //String currentTime = new SimpleDateFormat(TIME_TEMPLATE).format(new Date());
         LocalDateTime localDate = LocalDateTime.now();
@@ -114,7 +122,7 @@ public abstract class GreencityTestRunner {
     }
 
     private void takePageSource() {
-        //logger.debug("Start takePageSource()");
+        logger.debug("Start takePageSource()");
         //
         String currentTime = new SimpleDateFormat(TIME_TEMPLATE).format(new Date());
         String pageSource = driver.getPageSource();
