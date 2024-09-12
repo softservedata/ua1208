@@ -1,4 +1,4 @@
-package edu.softserve.edu.hw09;
+package edu.softserve.edu.hw10;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
