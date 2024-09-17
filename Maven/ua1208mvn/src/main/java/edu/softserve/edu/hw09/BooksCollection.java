@@ -1,7 +1,8 @@
-package edu.softserve.edu.hw10;
+package edu.softserve.edu.hw09;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BooksCollection {
 
@@ -27,6 +28,33 @@ public class BooksCollection {
 
         List<Book> fictionBooks = subcollectionByGenre(books, "Fantasy");
         System.out.println("Subcollection of Fantasy books: " + fictionBooks);
+
+
+        List<Book> booksByNonExistentAuthor = findBookByAuthor(books, "NonExistentAuthor");
+        if (booksByNonExistentAuthor.isEmpty()) {
+            System.out.println("Author not found test passed.");
+        } else {
+            System.out.println("Author not found test failed.");
+        }
+        List<Book> booksByNonExistentGenre = findBooksByGenre(books, "NonExistentGenre");
+        if (booksByNonExistentGenre.isEmpty()) {
+            System.out.println("Genre not found test passed.");
+        } else {
+            System.out.println("Genre not found test failed.");
+
+        }
+
+        // Sort by author
+        sortBooks(books, "author");
+        System.out.println("After sorting by author:");
+        books.forEach(System.out::println);
+
+        // Sort by year
+        sortBooks(books, "year");
+        System.out.println("After sorting by year:");
+        books.forEach(System.out::println);
+
+
     }
 
     // Return list of authors
@@ -40,13 +68,9 @@ public class BooksCollection {
 
     // Return list of authors by genre
     public static List<String> listAuthorsByGenre(List<Book> books, String genre) {
-        List<String> authors = new ArrayList<>();
-        for (Book book : books) {
-            if (book.getGenre().equalsIgnoreCase(genre)) {
-                authors.add(book.getAuthor());
-            }
-        }
-        return authors;
+        return books.stream().filter(book -> book.getGenre().equalsIgnoreCase(genre)).
+                map(Book::getAuthor).distinct().collect(Collectors.toList());
+
     }
 
     // Return list of authors by publication year
@@ -62,41 +86,34 @@ public class BooksCollection {
 
     // Return book by author
     public static List<Book> findBookByAuthor(List<Book> books, String author) {
-        List<Book> foundBooks = new ArrayList<>();
-        for (Book book : books) {
-            if (book.getAuthor().equalsIgnoreCase(author)) {
-                foundBooks.add(book);
-            }
-        }
-        return foundBooks;
+        return books.stream()
+                .filter(book -> book.getAuthor()
+                        .equalsIgnoreCase(author))
+                .collect(Collectors.toList());
     }
+
 
     // Return books by publication year
     public static List<Book> findBooksByPublicationYear(List<Book> books, int year) {
-        List<Book> foundBooks = new ArrayList<>();
-        for (Book book : books) {
-            if (book.getYear() == year) {
-                foundBooks.add(book);
-            }
-        }
-        return foundBooks;
+        return books.stream()
+                        .filter(book -> book.getYear() == year)
+                .collect(Collectors.toList());
     }
 
     // Return books by genre
     public static List<Book> findBooksByGenre(List<Book> books, String genre) {
-        List<Book> foundBooks = new ArrayList<>();
-        for (Book book : books) {
-            if (book.getGenre().equalsIgnoreCase(genre)) {
-                foundBooks.add(book);
-            }
+        return books.stream()
+                .filter(book -> book.getGenre().equalsIgnoreCase(genre))
+                .collect(Collectors.toList());
+
         }
-        return foundBooks;
-    }
+
 
     // Remove books by author
     public static void removeBooksByAuthor(List<Book> books, String author) {
         books.removeIf(book -> book.getAuthor().equalsIgnoreCase(author));
     }
+
 
     // Sort collection by criterion
     public static void sortBooks(List<Book> books, String criterion) {
@@ -111,8 +128,7 @@ public class BooksCollection {
                 books.sort((b1, b2) -> Integer.compare(b1.getYear(), b2.getYear()));
                 break;
             default:
-                System.out.println("Unknown criterion: " + criterion);
-                break;
+                throw new IllegalArgumentException("Unknown criterion: " + criterion);
         }
     }
 
@@ -132,4 +148,4 @@ public class BooksCollection {
         return subcollection;
     }
 
-   }
+}
