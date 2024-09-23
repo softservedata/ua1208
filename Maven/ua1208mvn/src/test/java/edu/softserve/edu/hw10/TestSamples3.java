@@ -1,9 +1,10 @@
-package edu.softserve.edu.hw11;
+package edu.softserve.edu.hw10;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
@@ -55,6 +56,10 @@ public class TestSamples3 {
         driver.get("https://www.greencity.cx.ua/#/ubs");
         PageFactory.initElements(driver, this);
     }
+    private void waitForVisibility(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
     @Test
     public void verifyTitle() {
@@ -70,8 +75,11 @@ public class TestSamples3 {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         // Перевірка мови, якщо потрібно
-        String language = driver.findElement(By.cssSelector("div.main-content.app-container li.lang-option > span")).getText();
-        if (language.toLowerCase().equals("ua")) {
+        String languageCode = driver.findElement(By.cssSelector("div.main-content.app-container li.lang-option > span")).getText();
+
+        Language currentLanguage = Language.fromCode(languageCode);
+        
+        if (currentLanguage == Language.UA) {
             driver.findElement(By.cssSelector("div.main-content.app-container img[src='assets/img/arrow_down.svg']")).click();
             driver.findElement(By.cssSelector("div.main-content.app-container li[aria-label='EN'] > span")).click();
         }
@@ -81,6 +89,7 @@ public class TestSamples3 {
             driver.switchTo().frame(frames.get(0));
             driver.findElement(By.id("close")).click();
             driver.switchTo().defaultContent();
+            waitForVisibility(welcomeText);
 
         }
         signInButton.click();
@@ -101,7 +110,7 @@ public class TestSamples3 {
 
     @ParameterizedTest
     @CsvSource({"svetlana.babyuk1gmail.com, bh2011//"})
-    public void signInNegative(String email, String password) {
+    public void signInWithInvalidCredentials(String email, String password) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         signInButton.click();
         wait.until(ExpectedConditions.visibilityOf(emailInput));
