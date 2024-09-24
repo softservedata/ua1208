@@ -2,10 +2,10 @@ package com.softserve.edu02events;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 import java.util.List;
@@ -15,13 +15,21 @@ public class DemoOpenCartTest {
 
     @BeforeAll
     public static void setUpClass() {
-        //WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.firefoxdriver().setup();
+        //System.setProperty("webdriver.gecko.driver", "./lib/geckodriver.exe");
         //driver = new FirefoxDriver();
         //
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        FirefoxOptions options = new FirefoxOptions()
+                .setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+                //.addArguments("-headless")
+                //.addArguments("-console");
+        driver = new FirefoxDriver(options);
+        //
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
         //
         //driver.manage().window().setSize(new Dimension(1295, 687));
+        //driver.manage().window().setSize(new Dimension(500, 200)); // 500 min
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
@@ -43,6 +51,21 @@ public class DemoOpenCartTest {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    @Test
+    public void checkSize() throws InterruptedException {
+        // My Account
+        driver.findElement(By.cssSelector("li.list-inline-item > div.dropdown a.dropdown-toggle")).click();
+        Thread.sleep(2000);
+        driver.manage().window().setSize(new Dimension(600, 500));
+        Thread.sleep(2000);
+        driver.manage().window().setSize(new Dimension(500, 200));
+        Thread.sleep(2000);
+        //
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.resizeTo(600, 500);"); // Not Working
+        Thread.sleep(2000);
     }
 
     @Test
