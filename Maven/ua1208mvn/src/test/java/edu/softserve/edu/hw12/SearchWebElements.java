@@ -1,4 +1,4 @@
-package edu.softserve.edu.pt12.pt12;
+package edu.softserve.edu.hw12;
 import edu.softserve.edu.hw10.Language;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
